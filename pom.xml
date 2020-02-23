@@ -23,6 +23,8 @@
   </properties>
   <modules>
     <module>greeter-api</module>
+    <module>greeter-impl</module>
+    <module>featurerepo</module>
   </modules>
   <dependencyManagement>
     <dependencies>
