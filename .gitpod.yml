@@ -1,0 +1,28 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: >
+      cd /workspace &&
+      wget -O karaf.tar.gz http://apache.lauf-forum.at/karaf/4.2.8/apache-karaf-4.2.8.tar.gz &&
+      tar -zvxf karaf.tar.gz &&
+      rm karaf.tar.gz &&
+      cd osgi-talk &&
+      mvn install -DskipTests=true
+    command: karaf
+    name: Application
+
+# currently there is no option to ignore ports and do NOT expose them, so every port we now ignore is exposed and can be accessed from outside ... be careful!
+ports:
+     # default ssh? port Karaf
+   - port: 8101
+     onOpen: ignore
+     # default RMI port Karaf
+   - port: 1099
+     onOpen: ignore
+     # default debugging port for Karaf
+   - port: 5005
+     onOpen: ignore
+     # default http port of Karaf
+   - port: 8181
+     onOpen: open-browser
