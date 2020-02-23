@@ -24,7 +24,7 @@ public class GreeterImpl implements Greeter{
     }
 
     @Override
-    public void greet() {
-        System.out.println("Moinsen!");
+    public String getGreeting(String nameToGreet) {
+        return "Moinsen " + nameToGreet;
     }
 }
